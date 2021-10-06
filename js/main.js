@@ -3,6 +3,7 @@ const getRandomNumber = function (min, max, decimalPlaces = 0) {
 
     return false;
   }
+
   return +(Math.random() * (max - min) + min).toFixed(decimalPlaces);
 };
 
@@ -45,8 +46,6 @@ const FEATURES = [
   'conditioner',
 ];
 
-
-
 const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
@@ -56,17 +55,20 @@ const PHOTOS = [
 const countObject = 10;
 
 const getRandomElement = (element) => {
+
  return element [(Math.floor(Math.random() * (element.length - 1)))]
 };
+
 
 const newArray = () => {
   const location = {
     lat: getRandomNumber(35.65000, 35.70000, 5),
-    lng: getRandomNumber(139.70000, 139.80000, 5)
-  }
+    lng: getRandomNumber(139.70000, 139.80000, 5),
+  };
+
   return {
     author: {
-      avatar: getRandomElement(AVATARS)
+      avatar: getRandomElement(AVATARS),
     },
     offer: {
       title: getRandomElement(TITLES),
@@ -79,7 +81,7 @@ const newArray = () => {
       checkout: getRandomElement(CHECKOUTS),
       features: getRandomElement(FEATURES),
       description: 'Жильё со всеми удобствами в центре города',
-      photos: getRandomElement(PHOTOS)
+      photos: getRandomElement(PHOTOS),
     },
     location
   };
