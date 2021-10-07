@@ -1,4 +1,4 @@
-import { newArray } from "./module/fake-data.js";
+import { newArray } from './module/fake-data.js';
 
 const COUNT_OBJECT = 10;
 
