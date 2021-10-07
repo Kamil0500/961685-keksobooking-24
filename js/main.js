@@ -1,9 +1,7 @@
-const getRandomNumber = function (min, max, decimalPlaces = 0) {
-  if (min > max || min < 0 || max <= 0) {
+import { newArray } from './module/fake-data.js';
 
-    return false;
-  }
-  return (Math.random() * (max - min) + min).toFixed(decimalPlaces);
-};
+const COUNT_OBJECT = 10;
 
-getRandomNumber();
+const countArray = Array.from({length: COUNT_OBJECT}, newArray);
+
+console.log(countArray);
