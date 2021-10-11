@@ -41,7 +41,7 @@ const PHOTOS = [
 ];
 
 const getRandomElement = (array) => {
-  const randomLength = getRandomNumber(0, array.length - 1);
+  const randomLength = getRandomNumber(1, array.length - 1);
   const randomElement = array[randomLength];
   return randomElement;
 };
