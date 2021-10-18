@@ -15,9 +15,9 @@ const AVATARS = [
 
 const DESCRIPTION = 'Жильё со всеми удобствами в центре города';
 
-const TITLES = ['Квартира', 'Дом', 'Комната'];
+const TITLES = ['Уютное гнездышко для молодоженов', 'Уютное гнездышко для молодоженов'];
 
-const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
+const TYPES = ['Дворец', 'Квартира', 'Дом', 'Бунгало', 'Отель'];
 
 const TIMES = ['12:00', '13:00', '14:00'];
 const LAT_MIN = 35.65;
@@ -41,7 +41,7 @@ const PHOTOS = [
 ];
 
 const getRandomElement = (array) => {
-  const randomLength = getRandomNumber(1, array.length - 1);
+  const randomLength = getRandomNumber(0, array.length - 1);
   const randomElement = array[randomLength];
   return randomElement;
 };
@@ -58,7 +58,7 @@ const getRandomArray = (array) => {
   return Array.from(new Set(randomArray));
 };
 
-export const newArray = () => {
+const newArray = () => {
   const location = {
     lat: getRandomNumber(LAT_MIN, LAT_MAX, 5),
     lng: getRandomNumber(LNG_MIN, LNG_MAX, 5),
@@ -84,3 +84,5 @@ export const newArray = () => {
     location,
   };
 };
+
+export {newArray};
