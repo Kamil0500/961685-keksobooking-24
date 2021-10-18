@@ -1,7 +1,4 @@
-import { newArray } from './module/fake-data.js';
+import {cardListFragment} from './module/generation-elements.js';
 
-const COUNT_OBJECT = 10;
-
-const countArray = Array.from({length: COUNT_OBJECT}, newArray);
-
-console.log(countArray);
+const mapCanvas = document.querySelector("#map-canvas");
+mapCanvas.appendChild(cardListFragment);
