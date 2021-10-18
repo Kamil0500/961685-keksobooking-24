@@ -1,7 +1,7 @@
-import { newArray } from "./fake-data.js";
+import { newArray } from './fake-data.js';
 
 const COUNT_OBJECT = 10;
-const cardList = document.querySelector("#card").content.querySelector(".popup");
+const cardList = document.querySelector('#card').content.querySelector('.popup');
 const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
 const cardListFragment = document.createDocumentFragment();
 
@@ -9,8 +9,8 @@ const createSimpleMarkup = (parent, cssClass, data) => {
   if (data) {
     parent.querySelector(cssClass).textContent = data;
     return;
-  };
-    parent.querySelector(cssClass).remove();
+  }
+  parent.querySelector(cssClass).remove();
 };
 
 const createAvatarMarkup = (parent, cssClass, data) => {
@@ -18,7 +18,7 @@ const createAvatarMarkup = (parent, cssClass, data) => {
     parent.querySelector(cssClass).src = data;
     return;
   };
-    parent.querySelector(cssClass).remove();
+  parent.querySelector(cssClass).remove();
 };
 
 const createPriceMarkup = (parent, cssClass, data) => {
@@ -57,7 +57,7 @@ const createFeaturesMarkup = (parent, cssClass, featuresData) => {
   };
   let features = '';
   featuresData.forEach((element) => {
-    features += `<li class="popup__feature popup__feature--${element}"></li>`
+    features += `<li class='popup__feature popup__feature--${element}'></li>`
   });
 
   parent.querySelector(cssClass).innerHTML = features;
@@ -70,30 +70,30 @@ const createPhotosMarkup = (parent, cssClass, photosData) => {
   };
   let photos = '';
   photosData.forEach((element) => {
-    photos += `<img src="${element}" class="popup__photo" width="45" height="40" alt="Фотография жилья">`;
+    photos += `<img src='${element}' class='popup__photo' width='45' height='40' alt='Фотография жилья'>`;
   });
 
   parent.querySelector(cssClass).innerHTML = photos;
 };
 
 
-  cardArray.forEach(({offer, author}, index) => {
-    const cardListClone = cardList.cloneNode(true);
-    createSimpleMarkup(cardListClone, '.popup__title', offer.title);
-    createSimpleMarkup(cardListClone, '.popup__text--address', offer.address);
-    createSimpleMarkup(cardListClone, '.popup__type', offer.type);
-    createSimpleMarkup(cardListClone, '.popup__description', offer.description);
-    createAvatarMarkup(cardListClone, '.popup__avatar', author.avatar);
-    createPriceMarkup(cardListClone, '.popup__text--price', offer.price);
-    createCapacityMarkup(cardListClone, '.popup__text--capacity', offer.rooms, offer.guests);
-    createTimesMarkup(cardListClone, '.popup__text--time', offer.checkin, offer.checkout);
-    createFeaturesMarkup(cardListClone, '.popup__features', offer.features);
-    createPhotosMarkup(cardListClone, '.popup__photos', offer.photos);
-    if (index) {
-      cardListClone.style.display = 'none';
-    };
+cardArray.forEach(({offer, author}, index) => {
+  const cardListClone = cardList.cloneNode(true);
+  createSimpleMarkup(cardListClone, '.popup__title', offer.title);
+  createSimpleMarkup(cardListClone, '.popup__text--address', offer.address);
+  createSimpleMarkup(cardListClone, '.popup__type', offer.type);
+  createSimpleMarkup(cardListClone, '.popup__description', offer.description);
+  createAvatarMarkup(cardListClone, '.popup__avatar', author.avatar);
+  createPriceMarkup(cardListClone, '.popup__text--price', offer.price);
+  createCapacityMarkup(cardListClone, '.popup__text--capacity', offer.rooms, offer.guests);
+  createTimesMarkup(cardListClone, '.popup__text--time', offer.checkin, offer.checkout);
+  createFeaturesMarkup(cardListClone, '.popup__features', offer.features);
+  createPhotosMarkup(cardListClone, '.popup__photos', offer.photos);
+  if (index) {
+    cardListClone.style.display = 'none';
+  };
     cardListFragment.appendChild(cardListClone);
-  });
+});
 
 
 export {cardListFragment};
