@@ -17,7 +17,7 @@ const createAvatarMarkup = (parent, cssClass, data) => {
   if (data) {
     parent.querySelector(cssClass).src = data;
     return;
-  };
+  }
   parent.querySelector(cssClass).remove();
 };
 
@@ -25,7 +25,7 @@ const createPriceMarkup = (parent, cssClass, data) => {
   if (data) {
     parent.querySelector(cssClass).innerHTML = `${data} <span>₽/ночь</span>`;
     return;
-  };
+  }
   parent.querySelector(cssClass).remove;
 };
 
@@ -33,7 +33,7 @@ const createCapacityMarkup = (parent, cssClass, roomsData, guestsData) => {
   if (!roomsData && !guestsData) {
     parent.querySelector(cssClass).remove();
     return;
-  };
+  }
   const roomsString = roomsData ? `${roomsData} комнаты ` : '';
   const guestsString = guestsData ? `для ${guestsData} гостей` : '';
   parent.querySelector(cssClass).textContent = `${roomsString}${guestsString}`;
@@ -43,7 +43,7 @@ const createTimesMarkup = (parent, cssClass, checkInData, checkOutData) => {
   if (!checkInData && !checkOutData) {
     parent.querySelector(cssClass).remove();
     return;
-  };
+  }
   const checkInString = checkInData ? `Заезд после ${checkInData} ` : '';
   const checkOutString = checkOutData ? `Выезд до ${checkOutData}` : '';
   const separator = checkInData && checkOutData ? ', ' : '';
@@ -54,10 +54,10 @@ const createFeaturesMarkup = (parent, cssClass, featuresData) => {
   if (typeof featuresData !== 'object' || !featuresData.length) {
     parent.querySelector(cssClass).remove();
     return;
-  };
+  }
   let features = '';
   featuresData.forEach((element) => {
-    features += `<li class='popup__feature popup__feature--${element}'></li>`
+    features += `<li class='popup__feature popup__feature--${element}'></li>`;
   });
 
   parent.querySelector(cssClass).innerHTML = features;
@@ -67,7 +67,7 @@ const createPhotosMarkup = (parent, cssClass, photosData) => {
   if (typeof photosData !== 'object' || !photosData.length) {
     parent.querySelector(cssClass).remove();
     return;
-  };
+  }
   let photos = '';
   photosData.forEach((element) => {
     photos += `<img src='${element}' class='popup__photo' width='45' height='40' alt='Фотография жилья'>`;
@@ -91,8 +91,8 @@ cardArray.forEach(({offer, author}, index) => {
   createPhotosMarkup(cardListClone, '.popup__photos', offer.photos);
   if (index) {
     cardListClone.style.display = 'none';
-  };
-    cardListFragment.appendChild(cardListClone);
+  }
+  cardListFragment.appendChild(cardListClone);
 });
 
 
