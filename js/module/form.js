@@ -1,10 +1,10 @@
-const formElement = document.querySelector(".ad-form");
-const roomsInputElement = document.querySelector("#room_number");
-const guestInputElement = document.querySelector("#capacity");
-const priceInputElement = document.querySelector("#price");
-const typeInputElement = document.querySelector("#type");
-const timeInInput = document.querySelector("#timein");
-const timeOutInput = document.querySelector("#timeout");
+const formElement = document.querySelector('.ad-form');
+const roomsInputElement = document.querySelector('#room_number');
+const guestInputElement = document.querySelector('#capacity');
+const priceInputElement = document.querySelector('#price');
+const typeInputElement = document.querySelector('#type');
+const timeInInput = document.querySelector('#timein');
+const timeOutInput = document.querySelector('#timeout');
 
 const minPriceRooms = {
   bungalow: 0,
@@ -42,6 +42,6 @@ const onRoomsChange = function (evt) {
   }
 };
 
-formElement.addEventListener("change", onRoomsChange);
-formElement.addEventListener("change", onTimeChange);
-typeInputElement.addEventListener("change", onChangeTypeElement);
+formElement.addEventListener('change', onRoomsChange);
+formElement.addEventListener('change', onTimeChange);
+typeInputElement.addEventListener('change', onChangeTypeElement);
