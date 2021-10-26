@@ -5,6 +5,14 @@ const cardList = document.querySelector('#card').content.querySelector('.popup')
 const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
 const cardListFragment = document.createDocumentFragment();
 
+const TYPES = {
+  'palace': 'Дворец',
+  'flat': 'Квартира',
+  'house': 'Дом',
+  'bungalow': 'Бунгало',
+  'hotel': 'Отель',
+};
+
 const createSimpleMarkup = (parent, cssClass, data) => {
   if (data) {
     parent.querySelector(cssClass).textContent = data;
@@ -81,7 +89,7 @@ cardArray.forEach(({offer, author}, index) => {
   const cardListClone = cardList.cloneNode(true);
   createSimpleMarkup(cardListClone, '.popup__title', offer.title);
   createSimpleMarkup(cardListClone, '.popup__text--address', offer.address);
-  createSimpleMarkup(cardListClone, '.popup__type', offer.type);
+  createSimpleMarkup(cardListClone, '.popup__type', TYPES[offer.type]);
   createSimpleMarkup(cardListClone, '.popup__description', offer.description);
   createAvatarMarkup(cardListClone, '.popup__avatar', author.avatar);
   createPriceMarkup(cardListClone, '.popup__text--price', offer.price);

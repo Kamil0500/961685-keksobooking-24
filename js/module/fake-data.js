@@ -17,7 +17,7 @@ const DESCRIPTION = 'Жильё со всеми удобствами в цент
 
 const TITLES = ['Уютное гнездышко для молодоженов', 'Уютное гнездышко для молодоженов'];
 
-const TYPES = ['Дворец', 'Квартира', 'Дом', 'Бунгало', 'Отель'];
+const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 
 const TIMES = ['12:00', '13:00', '14:00'];
 const LAT_MIN = 35.65;
