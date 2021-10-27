@@ -1,28 +1,21 @@
-const formElement = document.querySelector('.ad-form');
-const mapFilterElement = document.querySelector('.map__filters');
+const forms = document.querySelectorAll('form');
 
-export const disabledFormElements = () => {
-  formElement.classList.add('ad-form--disabled');
-  mapFilterElement.classList.add('map__filters--disabled');
-  const interactiveFormElement = formElement.querySelectorAll('fieldset');
-  interactiveFormElement.forEach((interactiveElement) => {
-    interactiveElement.disabled = true;
+const setElementDisabled = (form) => {
+  form.querySelectorAll('form select, input, button, textarea').forEach((item) => item.disabled = true)
+};
+
+const setElementEnabled = (form) => {
+  form.querySelectorAll('form select, input, button, textarea').forEach((item) => item.disabled = false);
+};
+
+export const setDisabledForm = () => {
+  forms.forEach((form) => {
+    form.classList.add('ad-form--disabled');
+    setElementDisabled(form);
   });
 };
 
-const enabledForm = () => {
-  formElement.classList.remove('ad-form--disabled');
-  const interactiveFormElement = formElement.querySelectorAll('fieldset');
-  interactiveFormElement.forEach((interactiveElement) => {
-    interactiveElement.disabled = false;
-  });
-};
-
-const enableMapFilter = () => {
-  mapFilterElement.classList.remove('map__filters--disabled');
-};
-
-export const enableFormElements = () => {
-  enabledForm();
-  enableMapFilter();
+export const setEnabledForm = (form) => {
+    form.classList.remove('ad-form--disabled');
+    setElementEnabled(form);
 };
