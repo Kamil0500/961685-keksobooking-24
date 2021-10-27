@@ -1,5 +1,3 @@
-const formElement = document.querySelector('.ad-form');
-const mapFilterElement = document.querySelector('.map__filters');
 const roomsSelectElement = document.querySelector('#room_number');
 const guestsSelectElement = document.querySelector('#capacity');
 const guestsOptionElements = document.querySelectorAll('#capacity option');
@@ -60,33 +58,11 @@ const onRoomsSelectChange = ({target}) => {
   guestsSelectElement.value = roomsToOptions[roomsSelectElement.value].value;
 };
 
-//активная/неактивная форма.
-
-const formElementDisabled = () => {
-  formElement.classList.add('ad-form--disabled');
-  mapFilterElement.classList.add('map__filters--disabled');
-  const interactiveFormElement = formElement.querySelectorAll('fieldset');
-  interactiveFormElement.forEach((interactiveElement) => {
-    interactiveElement.disabled = true;
-  });
-};
-
-const formElementNoDisabled = () => {
-  formElement.classList.remove('ad-form--disabled');
-  mapFilterElement.classList.remove('map__filters--disabled');
-  const interactiveFormElement = formElement.querySelectorAll('fieldset');
-  interactiveFormElement.forEach((interactiveElement) => {
-    interactiveElement.disabled = false;
-  });
-};
-
-const validateForm = () => {
-  formElementDisabled();
-  formElementNoDisabled();
+export const validateForm = () => {
   trackTypeInputChange();
   timeInSelectElement.addEventListener('change', onTimeInChange);
   timeOutSelectElement.addEventListener('change', onTimeOutChange);
   typeSelectElement.addEventListener('change', onTypeInputChange);
   roomsSelectElement.addEventListener('change', onRoomsSelectChange);
 };
-validateForm();
+
