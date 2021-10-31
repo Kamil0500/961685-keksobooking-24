@@ -5,7 +5,7 @@ export const cardList = document.querySelector('#card').content.querySelector('.
 export const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
 const cardListFragment = document.createDocumentFragment();
 
-cardArray.forEach(element => {
+cardArray.forEach((element) => {
   element.location;
 });
 

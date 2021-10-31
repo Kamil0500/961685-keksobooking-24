@@ -2,9 +2,8 @@ import {cardArray, cardList} from './generation-elements.js';
 const resetButton = document.querySelector('.ad-form__reset');
 const address = document.querySelector('#address');
 
-const map = L.map('map-canvas')
-.on('load', () => {
-}).setView({
+const map = L.map('map-canvas').on('load', () => {})
+.setView({
   lat: 35.7,
   lng: 139.7,
 }, 12);
@@ -29,8 +28,7 @@ const mainPinMarker = L.marker ({
 {
   draggable: true,
   icon: mainPinIcon,
-}
-);
+});
 mainPinMarker.addTo(map);
 
 mainPinMarker.on('moveend', (evt) => {
@@ -57,7 +55,7 @@ const createCustomPopup = () => {
   return popupElement;
 };
 
-points.forEach(element => {
+points.forEach((element) => {
   const pin = L.icon({
     iconUrl: 'img/pin.svg',
     iconSize: [40, 40],
