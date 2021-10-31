@@ -1,9 +1,13 @@
 import { newArray } from './fake-data.js';
 
 const COUNT_OBJECT = 10;
-const cardList = document.querySelector('#card').content.querySelector('.popup');
-const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
+export const cardList = document.querySelector('#card').content.querySelector('.popup');
+export const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
 const cardListFragment = document.createDocumentFragment();
+
+cardArray.forEach(element => {
+  element.location;
+});
 
 const TYPES = {
   'palace': 'Дворец',
