@@ -3,10 +3,10 @@ const resetButton = document.querySelector('.ad-form__reset');
 const address = document.querySelector('#address');
 
 const map = L.map('map-canvas').on('load', () => {})
-.setView({
-  lat: 35.7,
-  lng: 139.7,
-}, 12);
+  .setView({
+    lat: 35.7,
+    lng: 139.7,
+  }, 12);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
