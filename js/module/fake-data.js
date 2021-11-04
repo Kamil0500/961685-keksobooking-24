@@ -20,10 +20,10 @@ const TITLES = ['Уютное гнездышко для молодоженов',
 const TYPES = ['palace', 'flat', 'house', 'bungalow', 'hotel'];
 
 const TIMES = ['12:00', '13:00', '14:00'];
-const LAT_MIN = 35.65;
-const LAT_MAX = 35.7;
-const LNG_MIN = 139.7;
-const LNG_MAX = 139.8;
+const LAT_MIN = 35.95;
+const LAT_MAX = 35.99;
+const LNG_MIN = 139.61;
+const LNG_MAX = 139.75;
 
 const FEATURES = [
   'wifi',

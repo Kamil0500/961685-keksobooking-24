@@ -1,10 +1,3 @@
-import { newArray } from './fake-data.js';
-
-const COUNT_OBJECT = 10;
-const cardList = document.querySelector('#card').content.querySelector('.popup');
-const cardArray = Array.from({ length: COUNT_OBJECT }, newArray);
-const cardListFragment = document.createDocumentFragment();
-
 const TYPES = {
   'palace': 'Дворец',
   'flat': 'Квартира',
@@ -85,23 +78,20 @@ const createPhotosMarkup = (parent, cssClass, photosData) => {
 };
 
 
-cardArray.forEach(({offer, author}, index) => {
-  const cardListClone = cardList.cloneNode(true);
-  createSimpleMarkup(cardListClone, '.popup__title', offer.title);
-  createSimpleMarkup(cardListClone, '.popup__text--address', offer.address);
-  createSimpleMarkup(cardListClone, '.popup__type', TYPES[offer.type]);
-  createSimpleMarkup(cardListClone, '.popup__description', offer.description);
-  createAvatarMarkup(cardListClone, '.popup__avatar', author.avatar);
-  createPriceMarkup(cardListClone, '.popup__text--price', offer.price);
-  createCapacityMarkup(cardListClone, '.popup__text--capacity', offer.rooms, offer.guests);
-  createTimesMarkup(cardListClone, '.popup__text--time', offer.checkin, offer.checkout);
-  createFeaturesMarkup(cardListClone, '.popup__features', offer.features);
-  createPhotosMarkup(cardListClone, '.popup__photos', offer.photos);
-  if (index) {
-    cardListClone.style.display = 'none';
-  }
-  cardListFragment.appendChild(cardListClone);
-});
+export const createCard = ({offer, author}) => {
+  const cardTemplate = document.querySelector('#card').content;
+  const card = cardTemplate.querySelector('.popup');
+  const newCard = card.cloneNode(true);
+  createSimpleMarkup(newCard, '.popup__title', offer.title);
+  createSimpleMarkup(newCard, '.popup__text--address', offer.address);
+  createSimpleMarkup(newCard, '.popup__type', TYPES[offer.type]);
+  createSimpleMarkup(newCard, '.popup__description', offer.description);
+  createAvatarMarkup(newCard, '.popup__avatar', author.avatar);
+  createPriceMarkup(newCard, '.popup__text--price', offer.price);
+  createCapacityMarkup(newCard, '.popup__text--capacity', offer.rooms, offer.guests);
+  createTimesMarkup(newCard, '.popup__text--time', offer.checkin, offer.checkout);
+  createFeaturesMarkup(newCard, '.popup__features', offer.features);
+  createPhotosMarkup(newCard, '.popup__photos', offer.photos);
 
-
-export {cardListFragment};
+  return newCard;
+};
