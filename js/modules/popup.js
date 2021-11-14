@@ -1,8 +1,8 @@
-const TYPES = {
-  'palace': 'Дворец',
+const housingTypes = {
   'flat': 'Квартира',
-  'house': 'Дом',
   'bungalow': 'Бунгало',
+  'house': 'Дом',
+  'palace': 'Дворец',
   'hotel': 'Отель',
 };
 
@@ -24,7 +24,11 @@ const createAvatarMarkup = (parent, cssClass, data) => {
 
 const createPriceMarkup = (parent, cssClass, data) => {
   if (data) {
-    parent.querySelector(cssClass).innerHTML = `${data} <span>₽/ночь</span>`;
+    const element = parent.querySelector(cssClass);
+    const span = document.createElement('span');
+    span.textContent = ' ₽/ночь';
+    element.textContent = data;
+    element.appendChild(span);
     return;
   }
   parent.querySelector(cssClass).remove;
@@ -84,7 +88,7 @@ export const createCard = ({offer, author}) => {
   const newCard = card.cloneNode(true);
   createSimpleMarkup(newCard, '.popup__title', offer.title);
   createSimpleMarkup(newCard, '.popup__text--address', offer.address);
-  createSimpleMarkup(newCard, '.popup__type', TYPES[offer.type]);
+  createSimpleMarkup(newCard, '.popup__type', housingTypes[offer.type]);
   createSimpleMarkup(newCard, '.popup__description', offer.description);
   createAvatarMarkup(newCard, '.popup__avatar', author.avatar);
   createPriceMarkup(newCard, '.popup__text--price', offer.price);

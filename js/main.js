@@ -1,12 +1,5 @@
-import {validateForm} from './module/form.js';
-import {setDisabledFormState, setEnabledFormState} from './module/set-page-state.js';
-import {initMap} from './module/map.js';
+import {setDeactivatePageState} from './modules/set-forms-state.js';
+import {initMap} from './modules/map.js';
 
-const filterFormElement = document.querySelector('.map__filters');
-
-validateForm();
-
-setDisabledFormState();
+setDeactivatePageState();
 initMap();
-setEnabledFormState(filterFormElement);
-
