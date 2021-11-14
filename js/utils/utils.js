@@ -1,8 +1,9 @@
-export const getRandomNumber = (min, max, decimalPlaces = 0) => {
-  if (min > max || min < 0 || max <= 0) {
+// Функция, проверяющая нажатую клавишу 'Esc'
 
-    return false;
-  }
+export const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
-  return +(Math.random() * (max - min) + min).toFixed(decimalPlaces);
+// Функция, рендера
+
+export const renderElement = (el, container, position = 'beforeend') => {
+  container.insertAdjacentHTML(position, el);
 };
