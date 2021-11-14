@@ -57,8 +57,6 @@ export const setResRanking = (res) =>
     }, [])
     .sort((a, b) => b.rank - a.rank);
 
-
-
 export const setFilterFormChange = (cb) => {
   filterForm.addEventListener('change', () => {
     clearTimeout(timer);
