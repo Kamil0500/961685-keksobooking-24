@@ -1,9 +1,10 @@
 import {isEscEvent, renderElement} from '../utils/utils.js';
 
-const createErrorMarkup = (text, btnState) => `<div class="error">
-                                                <p class="error__message">${text}</p>
-                                                ${btnState ? '<button type="button" class="error__button">Попробовать снова</button>': ''}
-                                              </div>`;
+const createErrorMarkup = (text, btnState) =>
+  `<div class="error">
+    <p class="error__message">${text}</p>
+    ${btnState ? '<button type="button" class="error__button">Попробовать снова</button>': ''}
+  </div>`;
 
 
 const errorBlockClickHandler = (evt) => {

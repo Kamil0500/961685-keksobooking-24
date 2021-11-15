@@ -4,9 +4,10 @@ import {resetAddForm} from './activate-ad-form.js';
 
 const forms = document.querySelectorAll('form');
 
-const createSuccessMarkup = () => `<div class="success">
-                                    <p class="success__message">Ваше объявление<br>успешно размещено!</p>
-                                  </div>`;
+const createSuccessMarkup = () =>
+  `<div class="success">
+    <p class="success__message">Ваше объявление<br>успешно размещено!</p>
+  </div>`;
 
 const successBlockClickHandler = (evt) => {
   evt.preventDefault();
