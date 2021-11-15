@@ -10,6 +10,7 @@ const CITY_CENTER = {
   lat: 35.6895,
   lng: 139.69171,
 };
+const MAP_ZOOM = 12;
 
 const addressInput = document.querySelector('#address');
 const mapInteractive = L.map('map-canvas');
@@ -24,38 +25,37 @@ export const removeMarkerGroup = () => {
 
 export const setPinMarkerStartState = () => {
   mainPinMarker.setLatLng(CITY_CENTER);
-  mapInteractive.setView(CITY_CENTER, 12);
+  mapInteractive.setView(CITY_CENTER, MAP_ZOOM);
 };
 
 export const addMarkersGroup = (arr) => {
   markerGroup = L.layerGroup().addTo(mapInteractive);
   arr
-    .slice()
     .filter(filterAdverts)
     .slice(0, ADVERT_COUNTER)
     .forEach((el) => {
-      const lat = el.location.lat;
-      const lng = el.location.lng;
-      const icon = L.icon({
-        iconUrl: '../img/pin.svg',
-        iconSize: [40, 40],
-        iconAnchor: [20, 40],
-      });
-
       const marker = L.marker(
         {
-          lat,
-          lng,
+          lat: el.location.lat,
+          lng: el.location.lng,
         },
         {
-          icon,
+          icon: L.icon({
+            iconUrl: '../img/pin.svg',
+            iconSize: [40, 40],
+            iconAnchor: [20, 40],
+          }),
         },
       );
-
       marker.addTo(markerGroup).bindPopup(createCard(el), {
         keepInView: true,
       });
     });
+};
+
+const setAddress = () => {
+  const {lat, lng} = mainPinMarker.getLatLng();
+  addressInput.value = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
 };
 
 export const initMap = () => {
@@ -64,7 +64,7 @@ export const initMap = () => {
       activateAdForm();
       getData(getSuccessHandler, getErrorHandler);
     })
-    .setView(CITY_CENTER, 12);
+    .setView(CITY_CENTER, MAP_ZOOM);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -84,9 +84,6 @@ export const initMap = () => {
     },
   );
 
-  addressInput.value = `${mainPinMarker.getLatLng().lat.toFixed(5)}, ${mainPinMarker.getLatLng().lng.toFixed(5)}`;
-
-  mainPinMarker.addTo(mapInteractive).on('move', () => {
-    addressInput.value = `${mainPinMarker.getLatLng().lat.toFixed(5)}, ${mainPinMarker.getLatLng().lng.toFixed(5)}`;
-  });
+  setAddress();
+  mainPinMarker.addTo(mapInteractive).on('move', () => setAddress());
 };
