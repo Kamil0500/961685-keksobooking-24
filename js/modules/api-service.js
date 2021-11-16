@@ -23,7 +23,11 @@ export const sendData = (sendSuccessHandler, sendErrorHandler, body) => {
       method: 'POST',
       body,
     },
-  )
+  ).then((res) => {
+    if(!res.ok) {
+      throw new Error();
+    }
+  })
     .then(() => {
       sendSuccessHandler();
     })
