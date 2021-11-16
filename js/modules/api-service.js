@@ -1,5 +1,8 @@
+const GET_DATA_URL = 'https://24.javascript.pages.academy/keksobooking/data';
+const SEND_DATA_URL = 'https://24.javascript.pages.academy/keksobooking';
+
 export const getData = (getSuccessHandler, getErrorHandler) => {
-  fetch('https://24.javascript.pages.academy/keksobooking/data')
+  fetch(GET_DATA_URL)
     .then((res) => {
       if (res.ok) {
         return res.json();
@@ -15,7 +18,7 @@ export const getData = (getSuccessHandler, getErrorHandler) => {
 };
 
 export const sendData = (sendSuccessHandler, sendErrorHandler, body) => {
-  fetch('https://24.javascript.pages.academy/keksobooking',
+  fetch(SEND_DATA_URL,
     {
       method: 'POST',
       body,
